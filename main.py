@@ -1,12 +1,12 @@
 import uvicorn
 from fastapi import FastAPI
+from users import users_views
+from items import items_views
 
 
 app = FastAPI()
-
-@app.get("/{name}")
-def top_name(name):
-    return {"name":name, "message": name[::-1]}
+app.include_router(users_views.router, tags=["Users"])
+app.include_router(items_views.router, tags=["Items"])
 
 @app.get("/")
 def name():
