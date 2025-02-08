@@ -9,8 +9,6 @@ app.include_router(users_views.router, tags=["Users"])
 app.include_router(items_views.router, tags=["Items"])
 
 
-
-
 @app.get("/")
 def name():
     return "hello"
